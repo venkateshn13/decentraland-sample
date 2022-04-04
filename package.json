@@ -16,7 +16,7 @@
   "dependencies": {
     "@dcl/ecs-scene-utils": "^1.7.5",
     "@dcl/ui-scene-utils": "^1.8.3",
-    "decentraland": "latest",
+    "decentraland": "^3.10.1",
     "decentraland-builder-scripts": "latest",
     "express": "^4.17.3",
     "socket.io": "^4.4.1",
