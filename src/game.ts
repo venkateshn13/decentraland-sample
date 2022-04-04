@@ -7,6 +7,8 @@ import Script4 from "../ab84996d-dcdc-429c-818e-a7640239c803/src/item"
 import Script5 from "../1746d432-ba19-4b2e-819f-d16cf5a64236/src/item"
 import Script6 from "../ed36149f-76c5-45c4-a678-d4b31c4ed9ca/src/item"
 
+import * as ui from '@dcl/ui-scene-utils'
+
 const _scene = new Entity('_scene')
 engine.addEntity(_scene)
 const transform = new Transform({
@@ -2504,6 +2506,15 @@ const transform224 = new Transform({
 })
 concreteWall48.addComponentOrReplace(transform224)
 
+// let prompt = new ui.OkPrompt(
+//   'This is an Ok Prompt',
+//   () => {
+//     log(`accepted`)
+//   },
+//   'Ok',
+//   true
+// )
+
 const whiteCar = new Entity('whiteCar')
 engine.addEntity(whiteCar)
 whiteCar.setParent(_scene)
@@ -2518,39 +2529,59 @@ gltfShape10.withCollisions = true
 gltfShape10.isPointerBlocker = true
 gltfShape10.visible = true
 whiteCar.addComponentOrReplace(gltfShape10)
+whiteCar.addComponent(
+  new OnPointerDown(
+    (e) => {
+      log("myEntity clicked", e)
+      let prompt = new ui.OptionPrompt(
+        'Pick an option!',
+        'What will you choose?',
+        () => {
+          log(`picked option A`)
+        },
+        () => {
+          log(`picked option B`)
+        },
+        'Pick A',
+        'Pick B'
+      )
+    },
+    { button: ActionButton.PRIMARY, showFeedback: true, hoverText: "INFO" }
+  )
+)
 
-const whiteCar2 = new Entity('whiteCar2')
-engine.addEntity(whiteCar2)
-whiteCar2.setParent(_scene)
-whiteCar2.addComponentOrReplace(gltfShape10)
-const transform226 = new Transform({
-  position: new Vector3(38.5, 3, 30.5),
-  rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
-  scale: new Vector3(1.5000028610229492, 1, 1.5000030994415283)
-})
-whiteCar2.addComponentOrReplace(transform226)
+// const whiteCar2 = new Entity('whiteCar2')
+// engine.addEntity(whiteCar2)
+// whiteCar2.setParent(_scene)
+// whiteCar2.addComponentOrReplace(gltfShape10)
+// const transform226 = new Transform({
+//   position: new Vector3(38.5, 3, 30.5),
+//   rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
+//   scale: new Vector3(1.5000028610229492, 1, 1.5000030994415283)
+// })
+// whiteCar2.addComponentOrReplace(transform226)
 
-const whiteCar3 = new Entity('whiteCar3')
-engine.addEntity(whiteCar3)
-whiteCar3.setParent(_scene)
-whiteCar3.addComponentOrReplace(gltfShape10)
-const transform227 = new Transform({
-  position: new Vector3(38.5, 3, 41.5),
-  rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
-  scale: new Vector3(1.5000051259994507, 1, 1.5000053644180298)
-})
-whiteCar3.addComponentOrReplace(transform227)
+// const whiteCar3 = new Entity('whiteCar3')
+// engine.addEntity(whiteCar3)
+// whiteCar3.setParent(_scene)
+// whiteCar3.addComponentOrReplace(gltfShape10)
+// const transform227 = new Transform({
+//   position: new Vector3(38.5, 3, 41.5),
+//   rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
+//   scale: new Vector3(1.5000051259994507, 1, 1.5000053644180298)
+// })
+// whiteCar3.addComponentOrReplace(transform227)
 
-const whiteCar4 = new Entity('whiteCar4')
-engine.addEntity(whiteCar4)
-whiteCar4.setParent(_scene)
-whiteCar4.addComponentOrReplace(gltfShape10)
-const transform228 = new Transform({
-  position: new Vector3(26.5, 3, 15),
-  rotation: new Quaternion(-1.290464965416412e-15, 1, -1.1920928244535389e-7, -8.940696716308594e-8),
-  scale: new Vector3(1.5000029802322388, 1, 1.5000032186508179)
-})
-whiteCar4.addComponentOrReplace(transform228)
+// const whiteCar4 = new Entity('whiteCar4')
+// engine.addEntity(whiteCar4)
+// whiteCar4.setParent(_scene)
+// whiteCar4.addComponentOrReplace(gltfShape10)
+// const transform228 = new Transform({
+//   position: new Vector3(26.5, 3, 15),
+//   rotation: new Quaternion(-1.290464965416412e-15, 1, -1.1920928244535389e-7, -8.940696716308594e-8),
+//   scale: new Vector3(1.5000029802322388, 1, 1.5000032186508179)
+// })
+// whiteCar4.addComponentOrReplace(transform228)
 
 const imageFromURL = new Entity('imageFromURL')
 engine.addEntity(imageFromURL)
@@ -4797,121 +4828,121 @@ const transform432 = new Transform({
 })
 wallPlainGlass113.addComponentOrReplace(transform432)
 
-const whiteCar6 = new Entity('whiteCar6')
-engine.addEntity(whiteCar6)
-whiteCar6.setParent(_scene)
-whiteCar6.addComponentOrReplace(gltfShape10)
-const transform433 = new Transform({
-  position: new Vector3(27.5, 0, 73.5),
-  rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
-  scale: new Vector3(1.5000104904174805, 1, 1.5000107288360596)
-})
-whiteCar6.addComponentOrReplace(transform433)
+// const whiteCar6 = new Entity('whiteCar6')
+// engine.addEntity(whiteCar6)
+// whiteCar6.setParent(_scene)
+// whiteCar6.addComponentOrReplace(gltfShape10)
+// const transform433 = new Transform({
+//   position: new Vector3(27.5, 0, 73.5),
+//   rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
+//   scale: new Vector3(1.5000104904174805, 1, 1.5000107288360596)
+// })
+// whiteCar6.addComponentOrReplace(transform433)
 
-const qrDonationsBlackbo6 = new Entity('qrDonationsBlackbo6')
-engine.addEntity(qrDonationsBlackbo6)
-qrDonationsBlackbo6.setParent(_scene)
-const transform434 = new Transform({
-  position: new Vector3(30.5, 0, 76.5),
-  rotation: new Quaternion(-7.029745599038541e-16, 0.7071068286895752, -8.429368847373553e-8, -0.7071067094802856),
-  scale: new Vector3(0.9999973773956299, 1, 0.9999973773956299)
-})
-qrDonationsBlackbo6.addComponentOrReplace(transform434)
+// const qrDonationsBlackbo6 = new Entity('qrDonationsBlackbo6')
+// engine.addEntity(qrDonationsBlackbo6)
+// qrDonationsBlackbo6.setParent(_scene)
+// const transform434 = new Transform({
+//   position: new Vector3(30.5, 0, 76.5),
+//   rotation: new Quaternion(-7.029745599038541e-16, 0.7071068286895752, -8.429368847373553e-8, -0.7071067094802856),
+//   scale: new Vector3(0.9999973773956299, 1, 0.9999973773956299)
+// })
+// qrDonationsBlackbo6.addComponentOrReplace(transform434)
 
-const whiteCar7 = new Entity('whiteCar7')
-engine.addEntity(whiteCar7)
-whiteCar7.setParent(_scene)
-whiteCar7.addComponentOrReplace(gltfShape10)
-const transform435 = new Transform({
-  position: new Vector3(13.5, 0, 73.5),
-  rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
-  scale: new Vector3(1.5000109672546387, 1, 1.5000112056732178)
-})
-whiteCar7.addComponentOrReplace(transform435)
+// const whiteCar7 = new Entity('whiteCar7')
+// engine.addEntity(whiteCar7)
+// whiteCar7.setParent(_scene)
+// whiteCar7.addComponentOrReplace(gltfShape10)
+// const transform435 = new Transform({
+//   position: new Vector3(13.5, 0, 73.5),
+//   rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
+//   scale: new Vector3(1.5000109672546387, 1, 1.5000112056732178)
+// })
+// whiteCar7.addComponentOrReplace(transform435)
 
-const qrDonationsBlackbo7 = new Entity('qrDonationsBlackbo7')
-engine.addEntity(qrDonationsBlackbo7)
-qrDonationsBlackbo7.setParent(_scene)
-const transform436 = new Transform({
-  position: new Vector3(16.5, 0, 76.5),
-  rotation: new Quaternion(-7.029745599038541e-16, 0.7071068286895752, -8.429368847373553e-8, -0.7071067094802856),
-  scale: new Vector3(0.9999971389770508, 1, 0.9999971389770508)
-})
-qrDonationsBlackbo7.addComponentOrReplace(transform436)
+// const qrDonationsBlackbo7 = new Entity('qrDonationsBlackbo7')
+// engine.addEntity(qrDonationsBlackbo7)
+// qrDonationsBlackbo7.setParent(_scene)
+// const transform436 = new Transform({
+//   position: new Vector3(16.5, 0, 76.5),
+//   rotation: new Quaternion(-7.029745599038541e-16, 0.7071068286895752, -8.429368847373553e-8, -0.7071067094802856),
+//   scale: new Vector3(0.9999971389770508, 1, 0.9999971389770508)
+// })
+// qrDonationsBlackbo7.addComponentOrReplace(transform436)
 
-const whiteCar8 = new Entity('whiteCar8')
-engine.addEntity(whiteCar8)
-whiteCar8.setParent(_scene)
-whiteCar8.addComponentOrReplace(gltfShape10)
-const transform437 = new Transform({
-  position: new Vector3(42.5, 0, 73.5),
-  rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
-  scale: new Vector3(1.5000118017196655, 1, 1.5000120401382446)
-})
-whiteCar8.addComponentOrReplace(transform437)
+// const whiteCar8 = new Entity('whiteCar8')
+// engine.addEntity(whiteCar8)
+// whiteCar8.setParent(_scene)
+// whiteCar8.addComponentOrReplace(gltfShape10)
+// const transform437 = new Transform({
+//   position: new Vector3(42.5, 0, 73.5),
+//   rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
+//   scale: new Vector3(1.5000118017196655, 1, 1.5000120401382446)
+// })
+// whiteCar8.addComponentOrReplace(transform437)
 
-const qrDonationsBlackbo8 = new Entity('qrDonationsBlackbo8')
-engine.addEntity(qrDonationsBlackbo8)
-qrDonationsBlackbo8.setParent(_scene)
-const transform438 = new Transform({
-  position: new Vector3(45.5, 0, 76.5),
-  rotation: new Quaternion(-7.029745599038541e-16, 0.7071068286895752, -8.429368847373553e-8, -0.7071067094802856),
-  scale: new Vector3(0.9999970197677612, 1, 0.9999970197677612)
-})
-qrDonationsBlackbo8.addComponentOrReplace(transform438)
+// const qrDonationsBlackbo8 = new Entity('qrDonationsBlackbo8')
+// engine.addEntity(qrDonationsBlackbo8)
+// qrDonationsBlackbo8.setParent(_scene)
+// const transform438 = new Transform({
+//   position: new Vector3(45.5, 0, 76.5),
+//   rotation: new Quaternion(-7.029745599038541e-16, 0.7071068286895752, -8.429368847373553e-8, -0.7071067094802856),
+//   scale: new Vector3(0.9999970197677612, 1, 0.9999970197677612)
+// })
+// qrDonationsBlackbo8.addComponentOrReplace(transform438)
 
-const whiteCar9 = new Entity('whiteCar9')
-engine.addEntity(whiteCar9)
-whiteCar9.setParent(_scene)
-whiteCar9.addComponentOrReplace(gltfShape10)
-const transform439 = new Transform({
-  position: new Vector3(42.5, 0, 62),
-  rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
-  scale: new Vector3(1.5000122785568237, 1, 1.5000125169754028)
-})
-whiteCar9.addComponentOrReplace(transform439)
+// const whiteCar9 = new Entity('whiteCar9')
+// engine.addEntity(whiteCar9)
+// whiteCar9.setParent(_scene)
+// whiteCar9.addComponentOrReplace(gltfShape10)
+// const transform439 = new Transform({
+//   position: new Vector3(42.5, 0, 62),
+//   rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
+//   scale: new Vector3(1.5000122785568237, 1, 1.5000125169754028)
+// })
+// whiteCar9.addComponentOrReplace(transform439)
 
-const qrDonationsBlackbo9 = new Entity('qrDonationsBlackbo9')
-engine.addEntity(qrDonationsBlackbo9)
-qrDonationsBlackbo9.setParent(_scene)
-const transform440 = new Transform({
-  position: new Vector3(45.5, 0, 65),
-  rotation: new Quaternion(-7.029745599038541e-16, 0.7071068286895752, -8.429368847373553e-8, -0.7071067094802856),
-  scale: new Vector3(0.9999969005584717, 1, 0.9999969005584717)
-})
-qrDonationsBlackbo9.addComponentOrReplace(transform440)
+// const qrDonationsBlackbo9 = new Entity('qrDonationsBlackbo9')
+// engine.addEntity(qrDonationsBlackbo9)
+// qrDonationsBlackbo9.setParent(_scene)
+// const transform440 = new Transform({
+//   position: new Vector3(45.5, 0, 65),
+//   rotation: new Quaternion(-7.029745599038541e-16, 0.7071068286895752, -8.429368847373553e-8, -0.7071067094802856),
+//   scale: new Vector3(0.9999969005584717, 1, 0.9999969005584717)
+// })
+// qrDonationsBlackbo9.addComponentOrReplace(transform440)
 
-const whiteCar10 = new Entity('whiteCar10')
-engine.addEntity(whiteCar10)
-whiteCar10.setParent(_scene)
-whiteCar10.addComponentOrReplace(gltfShape10)
-const transform441 = new Transform({
-  position: new Vector3(27.5, 0, 62),
-  rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
-  scale: new Vector3(1.5000109672546387, 1, 1.5000112056732178)
-})
-whiteCar10.addComponentOrReplace(transform441)
+// const whiteCar10 = new Entity('whiteCar10')
+// engine.addEntity(whiteCar10)
+// whiteCar10.setParent(_scene)
+// whiteCar10.addComponentOrReplace(gltfShape10)
+// const transform441 = new Transform({
+//   position: new Vector3(27.5, 0, 62),
+//   rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
+//   scale: new Vector3(1.5000109672546387, 1, 1.5000112056732178)
+// })
+// whiteCar10.addComponentOrReplace(transform441)
 
-const qrDonationsBlackbo10 = new Entity('qrDonationsBlackbo10')
-engine.addEntity(qrDonationsBlackbo10)
-qrDonationsBlackbo10.setParent(_scene)
-const transform442 = new Transform({
-  position: new Vector3(30.5, 0, 65),
-  rotation: new Quaternion(-7.029745599038541e-16, 0.7071068286895752, -8.429368847373553e-8, -0.7071067094802856),
-  scale: new Vector3(0.9999972581863403, 1, 0.9999972581863403)
-})
-qrDonationsBlackbo10.addComponentOrReplace(transform442)
+// const qrDonationsBlackbo10 = new Entity('qrDonationsBlackbo10')
+// engine.addEntity(qrDonationsBlackbo10)
+// qrDonationsBlackbo10.setParent(_scene)
+// const transform442 = new Transform({
+//   position: new Vector3(30.5, 0, 65),
+//   rotation: new Quaternion(-7.029745599038541e-16, 0.7071068286895752, -8.429368847373553e-8, -0.7071067094802856),
+//   scale: new Vector3(0.9999972581863403, 1, 0.9999972581863403)
+// })
+// qrDonationsBlackbo10.addComponentOrReplace(transform442)
 
-const whiteCar11 = new Entity('whiteCar11')
-engine.addEntity(whiteCar11)
-whiteCar11.setParent(_scene)
-whiteCar11.addComponentOrReplace(gltfShape10)
-const transform443 = new Transform({
-  position: new Vector3(13.5, 0, 62),
-  rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
-  scale: new Vector3(1.5000114440917969, 1, 1.500011682510376)
-})
-whiteCar11.addComponentOrReplace(transform443)
+// const whiteCar11 = new Entity('whiteCar11')
+// engine.addEntity(whiteCar11)
+// whiteCar11.setParent(_scene)
+// whiteCar11.addComponentOrReplace(gltfShape10)
+// const transform443 = new Transform({
+//   position: new Vector3(13.5, 0, 62),
+//   rotation: new Quaternion(1.0167317630719631e-16, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
+//   scale: new Vector3(1.5000114440917969, 1, 1.500011682510376)
+// })
+// whiteCar11.addComponentOrReplace(transform443)
 
 const qrDonationsBlackbo11 = new Entity('qrDonationsBlackbo11')
 engine.addEntity(qrDonationsBlackbo11)
@@ -5204,7 +5235,10 @@ const transform469 = new Transform({
   rotation: new Quaternion(-1.5394153601527394e-15, 0.7071068286895752, -8.429369557916289e-8, 0.7071068286895752),
   scale: new Vector3(3.0000100135803223, 2, 1.000002384185791)
 })
-woodenDoor.addComponentOrReplace(transform469)
+// woodenDoor.addComponentOrReplace(transform469)
+
+ui.displayAnnouncement('Ouch!', 5, Color4.Red(), 50, true)
+let health = new ui.UIBar(0.8)
 
 const channelId = Math.random().toString(16).slice(2)
 const channelBus = new MessageBus()
@@ -5231,11 +5265,11 @@ script3.spawn(qrDonationsBlackbo2, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 script3.spawn(qrDonationsBlackbo4, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo4, channelBus))
 script4.spawn(plainText, {"text":"MARUTI SUZUKI SHOWROOM","font":"SF_Heavy","color":"#FFFFFF"}, createChannel(channelId, plainText, channelBus))
 script3.spawn(qrDonationsBlackbo5, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo5, channelBus))
-script3.spawn(qrDonationsBlackbo6, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo6, channelBus))
-script3.spawn(qrDonationsBlackbo7, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo7, channelBus))
-script3.spawn(qrDonationsBlackbo8, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo8, channelBus))
-script3.spawn(qrDonationsBlackbo9, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo9, channelBus))
-script3.spawn(qrDonationsBlackbo10, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo10, channelBus))
+// script3.spawn(qrDonationsBlackbo6, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo6, channelBus))
+// script3.spawn(qrDonationsBlackbo7, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo7, channelBus))
+// script3.spawn(qrDonationsBlackbo8, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo8, channelBus))
+// script3.spawn(qrDonationsBlackbo9, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo9, channelBus))
+// script3.spawn(qrDonationsBlackbo10, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo10, channelBus))
 script3.spawn(qrDonationsBlackbo11, {"publicKey":"0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","text":"Model - XXX\nColor - XXX\nFuel Capacity - X Ltrs\n","fontSize":10}, createChannel(channelId, qrDonationsBlackbo11, channelBus))
 script4.spawn(plainText2, {"text":"MARUTI SUZUKI SHOWROOM","font":"SF_Heavy","color":"#FFFFFF"}, createChannel(channelId, plainText2, channelBus))
 script4.spawn(plainText3, {"text":"MARUTI SUZUKI SHOWROOM","font":"SF_Heavy","color":"#FFFFFF"}, createChannel(channelId, plainText3, channelBus))

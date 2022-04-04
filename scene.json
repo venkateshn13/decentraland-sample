@@ -52,6 +52,9 @@
     "blacklist": [],
     "teleportPosition": ""
   },
+  "featureToggles": {
+    "voiceChat": "enabled"
+  },
   "source": {
     "version": 1,
     "origin": "builder",
